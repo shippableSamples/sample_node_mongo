@@ -1,0 +1,33 @@
+{
+  "name": "sample_node_mongo",
+  "version": "0.0.0",
+  "description": "Testing MongoDB service",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tmlbl/sample_node_mongo.git"
+  },
+  "author": "Tim Lebel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tmlbl/sample_node_mongo/issues"
+  },
+  "homepage": "https://github.com/tmlbl/sample_node_mongo",
+  "dependencies": {
+    "express": "^4.2.0",
+    "mongoose": "^3.8.9"
+  },
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "grunt": "^0.4.5",
+    "grunt-express-server": "^0.4.17",
+    "grunt-simple-mocha": "^0.4.0",
+    "istanbul": "^0.2.9",
+    "mocha": "^1.18.2",
+    "superagent": "^0.18.0",
+    "xunit-file": "0.0.5"
+  }
+}
