@@ -14,21 +14,23 @@ describe("Index", function () {
 });
 
 describe("Persistence", function () {
-  it("should create a thing", function () {
+  it("should create a thing", function (done) {
     superagent.get("http://localhost:3000/doobie")
       .end(function (e, res) {
         (e === null).should.equal(true);
         var response = (res.body.indexOf("new") !== -1);
         expect(response).to.equal(false);
+        done();
       });
   });
-  it("should retrieve a thing", function () {
+  it("should retrieve a thing", function (done) {
     superagent.get("http://localhost:3000/doobie")
       .end(function (e, res) {
         (e === null).should.equal(true);
-        var response = JSON.parse(res.body);
+        var response = res.body;
         response = response[0];
         response.should.have.property("name", "doobie");
+        done();
       });
   });
 });
