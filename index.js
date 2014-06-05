@@ -21,8 +21,14 @@ app.get("/:name", function (req, res) {
     if (t.length < 1) {
       var thing = new Thing();
       thing.name = req.params.name;
-      thing.save();
-      res.send("Created a new thing with name " + thing.name);
+      thing.save(function(err) {
+        if (err) {
+          res.send(500);
+        } else {
+          res.send("Created a new thing with name " + thing.name);
+        }
+      });
+      
     } else {
       res.send(t);
     }
