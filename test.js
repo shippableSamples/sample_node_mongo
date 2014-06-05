@@ -27,6 +27,7 @@ describe("Persistence", function () {
       .end(function (e, res) {
         e.should.equal(null);
         var response = JSON.parse(res.body);
+        console.log(res.body);
         response = response[0];
         response.should.have.property("name", "doobie");
       });
