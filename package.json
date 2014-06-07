@@ -18,7 +18,8 @@
   "homepage": "https://github.com/tmlbl/sample_node_mongo",
   "dependencies": {
     "express": "^4.2.0",
-    "mongoose": "^3.8.9"
+    "mongoose": "^3.8.9",
+    "should": "^4.0.1"
   },
   "devDependencies": {
     "chai": "^1.9.1",
