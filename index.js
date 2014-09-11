@@ -21,15 +21,15 @@ app.get("/:name", function (req, res) {
     if (t.length < 1) {
       var thing = new Thing();
       thing.name = req.params.name;
-      thing.save(function(err) {
+      thing.save(function(err, savedThing) {
         if (err) {
           res.send(500);
         } else {
-          res.send("Created a new thing with name " + thing.name);
+          res.send({returnObj: savedThing, created: true});
         }
       });
     } else {
-      res.send(t);
+      res.send({returnObj: t[0], created: false});
     }
   });
 });
