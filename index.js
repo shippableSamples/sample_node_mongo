@@ -1,6 +1,5 @@
 var express = require("express"),
     mongoose = require("mongoose"),
-    util = require('util'),
     app = express();
 
 mongoose.connect("mongodb://localhost/test", function (err) {
