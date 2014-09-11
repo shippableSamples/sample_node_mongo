@@ -1,5 +1,6 @@
 var express = require("express"),
     mongoose = require("mongoose"),
+    util = require('util'),
     app = express();
 
 mongoose.connect("mongodb://localhost/test", function (err) {
@@ -21,11 +22,11 @@ app.get("/:name", function (req, res) {
     if (t.length < 1) {
       var thing = new Thing();
       thing.name = req.params.name;
-      thing.save(function(err) {
+      thing.save(function(err, savedThing) {
         if (err) {
           res.send(500);
         } else {
-          res.send("Created a new thing with name " + thing.name);
+          res.send([savedThing]);
         }
       });
     } else {
