@@ -2,8 +2,6 @@ var express = require("express"),
     mongoose = require("mongoose"),
     app = express();
 
-console.log('Just a line change');
-
 mongoose.connect("mongodb://localhost/test", function (err) {
   if (!err) {
     console.log("Connected to MongoDB");
