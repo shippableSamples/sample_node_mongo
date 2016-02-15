@@ -19,7 +19,7 @@ build:
     - mkdir -p shippable/testresults
     - mkdir -p shippable/codecoverage
     - mongo test --eval "db.dropDatabase()"
-  
+    - npm install
     # Running the tests with grunt
     - ./node_modules/.bin/istanbul cover grunt -- -u tdd
     - ./node_modules/.bin/istanbul report cobertura --dir  shippable/codecoverage/
