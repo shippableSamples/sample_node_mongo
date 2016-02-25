@@ -3,9 +3,7 @@ language: node_js
 
 # Version number
 node_js:
-  - 0.10.25
-  - 4.2.0
-  - 5
+  - "5.0"
 
 # Mongo binds to 127.0.0.1 by default
 services:
@@ -15,17 +13,13 @@ services:
 env:
   - XUNIT_FILE=shippable/testresults/result.xml
 
-# Create directories for test and coverage reports
-before_script:
-  - mkdir -p shippable/testresults
-  - mkdir -p shippable/codecoverage
-
-# Running the tests with grunt
-script:
-  - grunt
-
-# Tell istanbul to generate a coverage report
-after_script:
-  - mongo test --eval "db.dropDatabase()"
-  - ./node_modules/.bin/istanbul cover grunt -- -u tdd
-  - ./node_modules/.bin/istanbul report cobertura --dir  shippable/codecoverage/
+build:
+  ci:
+    # Create directories for test and coverage reports
+    - mkdir -p shippable/testresults
+    - mkdir -p shippable/codecoverage
+    - mongo test --eval "db.dropDatabase()"
+    - npm install
+    # Running the tests with grunt
+    - ./node_modules/.bin/istanbul cover grunt -- -u tdd
+    - ./node_modules/.bin/istanbul report cobertura --dir  shippable/codecoverage/
